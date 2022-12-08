@@ -6,14 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulator</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .components-box {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 254px;
+        height: 940px;
+        left: 0px;
+        top: 84px;
+
+        background: #f5ee9e;
+      }
+    </style>
   </head>
   <body>
-    <header class="border-2 border-black py-8">
-      <button class="items-start">Menu</button>
-      <button class="items-end">Log In</button>
+    <header class="flex justify-between border-2 border-black py-8">
+      <button class="px-8">Menu</button>
+      <button class="px-8">Log In</button>
     </header>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="flex">
+      <div class="components-box"></div>
+      <div class="border-2 border-orange-400 p-8"></div>
+      <div class="border-2 border-lime-700 p-8"></div>
+    </div>
   </body>
 </html>
