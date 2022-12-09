@@ -18,17 +18,60 @@
 
         background: #f5ee9e;
       }
+
+      .properties-box {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 1186px;
+        height: 207px;
+        left: 254px;
+        top: 817px;
+
+        background: #f49e4c;
+      }
+
+      .header-box {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 1440px;
+        height: 84px;
+        left: 0px;
+        top: 0px;
+
+        background: #2d728f;
+      }
+
+      .canvas-box {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 1186px;
+        height: 733px;
+        left: 254px;
+        top: 84px;
+
+        background: #3b8ea5;
+      }
+
+      canvas {
+        border: 1px solid black;
+      }
     </style>
   </head>
   <body>
-    <header class="flex justify-between border-2 border-black py-8">
+    <header class="flex justify-between header-box">
       <button class="px-8">Menu</button>
       <button class="px-8">Log In</button>
     </header>
     <div class="flex">
       <div class="components-box"></div>
-      <div class="border-2 border-orange-400 p-8"></div>
-      <div class="border-2 border-lime-700 p-8"></div>
+      <div class="properties-box"></div>
+      <div class="canvas-box">
+        <canvas></canvas>
+        <script src="./simulator.js"></script>
+      </div>
     </div>
   </body>
 </html>
