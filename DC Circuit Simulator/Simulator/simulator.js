@@ -1,9 +1,20 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
+let cellsArray = [];
+let rows = 7;
+let columns = 11;
+let padding = 10;
+let cellWidth = 100;
 
 function innit() {
   fitToContainer(canvas);
-  grid = new grid(canvas.width, canvas.height);
+
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < columns; i++) {
+      cellsArray[i + j] = new cells(cellWidth * i + padding, cellWidth * j + padding, cellWidth);
+      cellsArray[i + j].draw();
+    }
+  }
 }
 
 function fitToContainer(canvas) {
@@ -13,29 +24,53 @@ function fitToContainer(canvas) {
   canvas.height = canvas.offsetHeight;
 }
 
-class grid {
-  constructor(width, height) {
-    this.width = width - 100;
-    this.height = height - 100;
-    let size = {
-      rows: 10,
-      columns: 10,
-    };
-    let padding = 50;
+class cells {
+  constructor(x, y, w) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+  }
 
-    c.moveTo(padding, padding);
-    c.lineTo(width - padding, padding);
-    c.lineTo(width - padding, height - padding);
-    c.lineTo(padding, height - padding);
-    c.lineTo(padding, padding);
+  draw() {
+    c.moveTo(this.x, this.y);
+    c.rect(this.x, this.y, this.w, this.w);
     c.stroke();
-
-    for (let i = 0; i < size.rows; i++) {
-      c.moveTo(padding, padding + (width ));
-      c.lineTo(width - padding, padding * i);
-      c.stroke();
-    }
   }
 }
+
+// class grid extends cells {
+//   constructor(x, y, w, rows, columns, padding) {
+//     super(x, y, w);
+//     this.rows = rows;
+//     this.columns = columns;
+//     this.padding = padding;
+//     let cellsArray = [];
+
+//     // innitialising cells
+//     for (let i = 0; i < this.columns; i++) {
+//       for (let j = 0; j < this.rows; j++) {
+//         cellsArray[i + j] = new cells(
+//           j * this.w + this.padding,
+//           i * this.w + this.padding,
+//           50
+//         );
+//         cellsArray[i + j].draw();
+//       }
+//     }
+
+//     for (let i = 0; i < columns; i++) {
+//       this.grid[i] = cell;
+//     }
+//   }
+
+//   innitCells() {
+//     for (let i = 0; i < this.columns; i++) {
+//       for (let j = 0; j < this.rows; j++) {
+//         this.grid[i] = new cells(j + this.padding, i + this.padding, 50);
+//         console.log(this.grid[i]);
+//       }
+//     }
+//   }
+// }
 
 innit();
