@@ -1,8 +1,8 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 let cellsArray = [];
-let rows = 7;
-let columns = 11;
+let rows = 2;
+let columns = 2;
 let padding = 10;
 let cellWidth = 100;
 
