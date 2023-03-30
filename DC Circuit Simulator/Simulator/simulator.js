@@ -1,8 +1,8 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 let cellsArray = [];
-let rows = 2;
-let columns = 2;
+let rows = 5;
+let columns = 3;
 let padding = 10;
 let cellWidth = 100;
 
@@ -38,39 +38,39 @@ class cells {
   }
 }
 
-// class grid extends cells {
-//   constructor(x, y, w, rows, columns, padding) {
-//     super(x, y, w);
-//     this.rows = rows;
-//     this.columns = columns;
-//     this.padding = padding;
-//     let cellsArray = [];
+class grid extends cells {
+  constructor(x, y, w, rows, columns, padding) {
+    super(x, y, w);
+    this.rows = rows;
+    this.columns = columns;
+    this.padding = padding;
+    let cellsArray = [];
 
-//     // innitialising cells
-//     for (let i = 0; i < this.columns; i++) {
-//       for (let j = 0; j < this.rows; j++) {
-//         cellsArray[i + j] = new cells(
-//           j * this.w + this.padding,
-//           i * this.w + this.padding,
-//           50
-//         );
-//         cellsArray[i + j].draw();
-//       }
-//     }
+    // innitialising cells
+    for (let i = 0; i < this.columns; i++) {
+      for (let j = 0; j < this.rows; j++) {
+        cellsArray[i + j] = new cells(
+          j * this.w + this.padding,
+          i * this.w + this.padding,
+          50
+        );
+        cellsArray[i + j].draw();
+      }
+    }
 
-//     for (let i = 0; i < columns; i++) {
-//       this.grid[i] = cell;
-//     }
-//   }
+    for (let i = 0; i < columns; i++) {
+      this.grid[i] = cell;
+    }
+  }
 
-//   innitCells() {
-//     for (let i = 0; i < this.columns; i++) {
-//       for (let j = 0; j < this.rows; j++) {
-//         this.grid[i] = new cells(j + this.padding, i + this.padding, 50);
-//         console.log(this.grid[i]);
-//       }
-//     }
-//   }
-// }
+  innitCells() {
+    for (let i = 0; i < this.columns; i++) {
+      for (let j = 0; j < this.rows; j++) {
+        this.grid[i] = new cells(j + this.padding, i + this.padding, 50);
+        console.log(this.grid[i]);
+      }
+    }
+  }
+}
 
 innit();
